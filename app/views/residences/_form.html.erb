@@ -10,8 +10,39 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="responses">
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :footage, "Square Footage" %>
+      <%= f.text_field :footage %>
+    </div>
+    <div class="field">
+      <p>Do you rent?</p>
+      <%= f.radio_button :rent, "true" %>
+      <%= f.label :rent, "Yes" %>
+      <%= f.radio_button :rent, "false" %>
+      <%= f.label :rent, "No" %>
+    </div>
+    <div class="field">
+      <p>How often do you want to clean?</p>
+      <%= f.radio_button :cleaning_frequency, "1" %>
+      <%= f.label :cleaning_frequency, "Very Infrequently" %>
+      <%= f.radio_button :cleaning_frequency, "2" %>
+      <%= f.label :cleaning_frequency, "Infrequently" %>
+      <%= f.radio_button :cleaning_frequency, "3" %>
+      <%= f.label :cleaning_frequency, "Normally" %>
+      <%= f.radio_button :cleaning_frequency, "4" %>
+      <%= f.label :cleaning_frequency, "Frequently" %>
+      <%= f.radio_button :cleaning_frequency, "5" %>
+      <%= f.label :cleaning_frequency, "Very Frequently" %>
+    </div>
+  </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit" %>
   </div>
 <% end %>
