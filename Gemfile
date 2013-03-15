@@ -41,6 +41,8 @@ group :development, :test do
   #gem 'parallel_tests'
 end
 
+gem 'quiet_assets', :group => :development
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
