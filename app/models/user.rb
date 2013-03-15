@@ -5,6 +5,8 @@ class User
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+         
+  
 
   ## Database authenticatable
   field :email,              :type => String, :default => ""
@@ -37,4 +39,6 @@ class User
 
   ## Token authenticatable
   # field :authentication_token, :type => String
+  
+  has_many :residences
 end
