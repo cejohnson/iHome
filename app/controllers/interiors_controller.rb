@@ -1,4 +1,4 @@
-class InteriorsController < ApplicationController
+class InteriorsController < AuthenticatedController
   before_action :set_interior, only: [:show, :edit, :update, :destroy]
 
   # GET /interiors

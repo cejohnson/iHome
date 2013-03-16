@@ -7,6 +7,6 @@ class Residence
   field :rent, :type => Boolean, :default => false
   field :cleaning_frequency, :type => Integer, :default => 3
   
-  belongs_to :user
+  has_and_belongs_to_many :user
   embeds_one :interior
 end

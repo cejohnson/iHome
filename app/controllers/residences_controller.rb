@@ -1,4 +1,4 @@
-class ResidencesController < ApplicationController
+class ResidencesController < AuthenticatedController
   before_action :set_residence, only: [:show, :edit, :update, :destroy]
 
   # GET /residences
