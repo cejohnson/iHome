@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<%= @residence.name %>
+<%= @residence.footage %>
+<%= @residence.rent %>
+<%= @residence.cleaning_frequency %>
 
 <%= link_to 'Edit', edit_residence_path(@residence) %> |
 <%= link_to 'Back', residences_path %>
+
+<%= link_to 'Interior', interiors_path %>
