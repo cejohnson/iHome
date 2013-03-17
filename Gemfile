@@ -32,11 +32,14 @@ gem 'jquery-rails'
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'rb-inotify'
+  gem 'libnotify'
   gem 'poltergeist'
-  #gem 'mongoid-rspec'
+  gem 'mongoid-rspec',
+      git: 'https://github.com/evansagge/mongoid-rspec.git'
   gem 'factory_girl_rails'
   gem 'guard-rspec'
-  gem 'spork', '~> 1.0rc'   # load all rspec configuration once, fork when running tests
+  gem 'spork'   # load all rspec configuration once, fork when running tests
   gem 'guard-spork'         # get guard and spork to work together appropriately
   #gem 'parallel_tests'
 end

@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/evansagge/mongoid-rspec.git
+  revision: c998d80d9d2338f35f674928af41458f044f584d
+  specs:
+    mongoid-rspec (1.7.0)
+      mongoid (>= 3.0.1)
+      rake
+      rspec (>= 2.9)
+
+GIT
   remote: https://github.com/mongoid/mongoid.git
   revision: 4d60824665ade2fb37e8ebca3585d0b959db04bc
   specs:
@@ -109,6 +118,8 @@ GEM
     jwt (0.1.7)
       multi_json (>= 1.5)
     kgio (2.8.0)
+    libnotify (0.8.0)
+      ffi (>= 1.0.11)
     libv8 (3.11.8.13)
     listen (0.7.3)
     lumberjack (1.0.2)
@@ -176,6 +187,8 @@ GEM
       thor (>= 0.17.0, < 2.0)
     raindrops (0.10.0)
     rake (10.0.3)
+    rb-inotify (0.9.0)
+      ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.2)
@@ -256,16 +269,19 @@ DEPENDENCIES
   guard-spork
   jbuilder (~> 1.0.1)
   jquery-rails
+  libnotify
   mongoid!
+  mongoid-rspec!
   omniauth
   omniauth-facebook
   omniauth-twitter
   poltergeist
   quiet_assets
   rails (= 4.0.0.beta1)
+  rb-inotify
   rspec-rails
   sass-rails (~> 4.0.0.beta1)
-  spork (~> 1.0rc)
+  spork
   therubyracer
   turbolinks
   uglifier (>= 1.0.3)
