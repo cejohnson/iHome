@@ -4,6 +4,7 @@ class InteriorsController < AuthenticatedController
   # GET /interiors
   # GET /interiors.json
   def index
+    #@residence = current_user.residences.find(params[:id])
     @interiors = Interior.all
   end
 
@@ -25,6 +26,7 @@ class InteriorsController < AuthenticatedController
   # POST /interiors.json
   def create
     @interior = Interior.new(interior_params)
+    current_user.residence.interior << @interior
 
     respond_to do |format|
       if @interior.save

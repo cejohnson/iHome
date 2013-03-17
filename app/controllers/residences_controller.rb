@@ -4,7 +4,7 @@ class ResidencesController < AuthenticatedController
   # GET /residences
   # GET /residences.json
   def index
-    @residences = Residence.all
+    @residences = current_user.residences.all
   end
 
   # GET /residences/1
@@ -25,6 +25,7 @@ class ResidencesController < AuthenticatedController
   # POST /residences.json
   def create
     @residence = Residence.new(residence_params)
+    current_user.residences << @residence
 
     respond_to do |format|
       if @residence.save
