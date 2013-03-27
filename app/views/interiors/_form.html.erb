@@ -10,8 +10,18 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="responses">
+    <div class="field">
+      <p>Clean by room or task?</p>
+      <%= f.radio_button :clean_by_room, "false" %>
+      <%= f.label :clean_by_room, "Task" %>
+      <%= f.radio_button :clean_by_room, "true" %>
+      <%= f.label :clean_by_room, "Room" %>
+    </div>
+  </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit" %>
   </div>
 <% end %>

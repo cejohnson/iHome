@@ -3,6 +3,6 @@ class Room
   
   field :name, :type => String
   
-  belongs_to :interior
+  embedded_in :interior
   has_and_belongs_to_many :tasks
 end

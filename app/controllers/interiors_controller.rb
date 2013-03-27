@@ -26,8 +26,9 @@ class InteriorsController < AuthenticatedController
   # POST /interiors.json
   def create
     @interior = Interior.new(interior_params)
-    current_user.residence.interior << @interior
-
+    current_residence.interior = @interior
+    redirect_to rooms_path
+=begin
     respond_to do |format|
       if @interior.save
         format.html { redirect_to @interior, notice: 'Interior was successfully created.' }
@@ -37,6 +38,7 @@ class InteriorsController < AuthenticatedController
         format.json { render json: @interior.errors, status: :unprocessable_entity }
       end
     end
+=end
   end
 
   # PATCH/PUT /interiors/1
@@ -71,6 +73,6 @@ class InteriorsController < AuthenticatedController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def interior_params
-      params[:interior]
+      params.require(:interior).permit(:clean_by_room)
     end
 end

@@ -3,7 +3,7 @@ class Interior
   
   field :clean_by_room, :type => Boolean, :default => false
   
-  belongs_to :residence
+  embedded_in :residence
   embeds_many :rooms
   embeds_many :tasks
 end

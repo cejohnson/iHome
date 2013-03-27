@@ -26,7 +26,7 @@ class ResidencesController < AuthenticatedController
   def create
     @residence = Residence.new(residence_params)
     current_user.residences << @residence
-
+=begin
     respond_to do |format|
       if @residence.save
         format.html { redirect_to @residence, notice: 'Residence was successfully created.' }
@@ -34,6 +34,20 @@ class ResidencesController < AuthenticatedController
       else
         format.html { render action: 'new' }
         format.json { render json: @residence.errors, status: :unprocessable_entity }
+      end
+    end
+=end
+    if !current_residence.interior
+      redirect_to new_interior_path
+    else
+      respond_to do |format|
+        if @residence.save
+          format.html { redirect_to @residence, notice: 'Residence was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @residence }
+        else
+          format.html { render action: 'new' }
+          format.json { render json: @residence.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

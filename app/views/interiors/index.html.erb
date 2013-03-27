@@ -10,13 +10,15 @@
   </thead>
 
   <tbody>
-    <% @interiors.each do |interior| %>
+    
+    <tr><td>Hello</td><td><%= current_residence.name %></td></tr>
     <tr>
-      <td><%= link_to 'Show', interior %></td>
-      <td><%= link_to 'Edit', edit_interior_path(interior) %></td>
-      <td><%= link_to 'Destroy', interior, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= current_residence.name %></td>
+      <td><%= link_to 'Show', current_residence.interior %></td>
+      <td><%= link_to 'Edit', edit_interior_path(current_residence.interior) %></td>
+      <td><%= link_to 'Destroy', current_residence.interior, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
-    <% end %>
+    
   </tbody>
 </table>
 

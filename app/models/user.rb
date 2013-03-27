@@ -40,5 +40,9 @@ class User
   ## Token authenticatable
   # field :authentication_token, :type => String
   
+  #def current_residence
+  #  residences.find(param[:id])
+  #end
+  
   has_and_belongs_to_many :residences
 end
