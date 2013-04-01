@@ -24,7 +24,7 @@ class RoomsController < AuthenticatedController
   # POST /rooms
   # POST /rooms.json
   def create
-    @room = Room.new(room_params)
+    @room = current_residence.interior.rooms.new(room_params)
     current_residence.interior.rooms << @room
 
     respond_to do |format|

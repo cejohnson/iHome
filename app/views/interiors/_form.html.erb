@@ -13,11 +13,26 @@
   
   <div class="responses">
     <div class="field">
-      <p>Clean by room or task?</p>
+      <p>Do you want to get reminders to clean by room or by task?</p>
       <%= f.radio_button :clean_by_room, "false" %>
       <%= f.label :clean_by_room, "Task" %>
       <%= f.radio_button :clean_by_room, "true" %>
       <%= f.label :clean_by_room, "Room" %>
+    </div>
+    <div class="field">
+      <%= f.label :bedrooms, "How many bedrooms are in this residence?" %>
+      <%= f.text_field :bedrooms %>
+    </div>
+    <div class="field">
+      <%= f.label :bathrooms, "How many bathrooms are in this residence?" %>
+      <%= f.text_field :bathrooms %>
+    </div>
+    <div class="field">
+      <p>Do you have a garage?</p>
+      <%= f.radio_button :garage, "true" %>
+      <%= f.label :garage, "Yes" %>
+      <%= f.radio_button :garage, "false" %>
+      <%= f.label :garage, "No" %>
     </div>
   </div>
 

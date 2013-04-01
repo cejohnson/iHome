@@ -1,8 +1,7 @@
 class Residence
   include Mongoid::Document
   
-  field :name, :type => String  
-  field :footage, :type => Integer
+  field :name, :type => String
   field :rent, :type => Boolean, :default => false
   field :cleaning_frequency, :type => Integer, :default => 3
   

@@ -28,6 +28,7 @@ class InteriorsController < AuthenticatedController
   def create
     @interior = Interior.new(interior_params)
     current_residence.interior = @interior
+    current_residence.interior.set_rooms
     redirect_to rooms_path
 =begin
     respond_to do |format|
