@@ -13,7 +13,7 @@ protected
   end
   
   def current_residence
-    @current_residence ||= current_user.residences[0]
+    @current_residence ||= current_user.current_residence
   end
   helper_method :current_residence
 end

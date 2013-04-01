@@ -5,12 +5,13 @@ class InteriorsController < AuthenticatedController
   # GET /interiors.json
   def index
     #@residence = current_user.residences.find(params[:id])
-    @interiors = Interior.all
+    @interior = current_residence.interior
   end
 
   # GET /interiors/1
   # GET /interiors/1.json
   def show
+    @interior = current_residence.interior
   end
 
   # GET /interiors/new

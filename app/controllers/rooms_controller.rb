@@ -4,7 +4,7 @@ class RoomsController < AuthenticatedController
   # GET /rooms
   # GET /rooms.json
   def index
-    @rooms = Room.all
+    @rooms = current_residence.interior.rooms.all
   end
 
   # GET /rooms/1
@@ -25,6 +25,7 @@ class RoomsController < AuthenticatedController
   # POST /rooms.json
   def create
     @room = Room.new(room_params)
+    current_residence.interior.rooms << @room
 
     respond_to do |format|
       if @room.save

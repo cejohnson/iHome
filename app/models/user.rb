@@ -44,5 +44,16 @@ class User
   #  residences.find(param[:id])
   #end
   
+  field :current_residence_id, :type => String, :default => ""
+  
+  def current_residence
+    if current_residence_id != ""
+      residences.find(current_residence_id)
+    else
+      current_residence_id = residences[0].id
+      residences[0]
+    end
+  end
+  
   has_and_belongs_to_many :residences
 end
