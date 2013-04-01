@@ -6,8 +6,10 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
-  
+  field :first_name
+  field :last_name
 
+  
   ## Database authenticatable
   field :email,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
@@ -39,10 +41,6 @@ class User
 
   ## Token authenticatable
   # field :authentication_token, :type => String
-  
-  #def current_residence
-  #  residences.find(param[:id])
-  #end
   
   field :current_residence_id, :type => String, :default => ""
   

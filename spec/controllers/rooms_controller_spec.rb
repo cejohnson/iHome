@@ -19,7 +19,7 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe RoomsController do
-
+=begin
   # This should return the minimal set of attributes required to create a valid
   # Room. As you add validations to Room, be sure to
   # update the return value of this method accordingly.
@@ -160,5 +160,5 @@ describe RoomsController do
       response.should redirect_to(rooms_url)
     end
   end
-
+=end
 end

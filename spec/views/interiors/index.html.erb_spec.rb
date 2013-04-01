@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "interiors/index" do
+=begin
   before(:each) do
     assign(:interiors, [
       stub_model(Interior),
@@ -12,4 +13,5 @@ describe "interiors/index" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
   end
+=end
 end

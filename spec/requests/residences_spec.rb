@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "Residences" do
+=begin
   before do
     
   end
@@ -11,4 +12,5 @@ describe "Residences" do
       response.status.should be(200)
     end
   end
+=end
 end

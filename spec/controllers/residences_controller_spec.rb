@@ -20,6 +20,7 @@ require 'spec_helper'
 
 describe ResidencesController do
 
+=begin
   # This should return the minimal set of attributes required to create a valid
   # Residence. As you add validations to Residence, be sure to
   # update the return value of this method accordingly.
@@ -160,5 +161,5 @@ describe ResidencesController do
       response.should redirect_to(residences_url)
     end
   end
-
+=end
 end

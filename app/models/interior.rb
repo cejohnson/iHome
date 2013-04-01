@@ -11,7 +11,7 @@ class Interior
   has_many :tasks
   
   def set_rooms
-    Room.create([{ name: "Master Bedroom", category: "bedroom" }, 
+    rooms.create([{ name: "Master Bedroom", category: "bedroom" }, 
                          { name: "Master Bathroom", category: "bathroom" }, 
                          { name: "Kitchen", category: "kitchen" },
                          { name: "Living Room", category: "room" },
