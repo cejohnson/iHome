@@ -6,6 +6,7 @@ Ihome::Application.routes.draw do
   resources :interiors
 
   resources :residences
+  post 'residences/:id' => 'residences#set_active_residence', as: 'set_active_residence'
 
   devise_for :users, :controllers => {:registrations => "users/registrations", :passwords => "users/passwords"}
   # The priority is based upon order of creation: first created -> highest priority.

@@ -24,7 +24,7 @@ class RoomsController < AuthenticatedController
   # POST /rooms
   # POST /rooms.json
   def create
-    @room = current_residence.interior.rooms.new(room_params)
+    @room = Room.new(room_params)
     current_residence.interior.rooms << @room
 
     respond_to do |format|
@@ -42,7 +42,7 @@ class RoomsController < AuthenticatedController
   # PATCH/PUT /rooms/1.json
   def update
     respond_to do |format|
-      if @room.update(room_params)
+      if @room.update_attributes(room_params)
         format.html { redirect_to @room, notice: 'Room was successfully updated.' }
         format.json { head :no_content }
       else
@@ -65,11 +65,11 @@ class RoomsController < AuthenticatedController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_room
-      @room = Room.find(params[:id])
+      @room = current_residence.interior.rooms.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
-      params[:room]
+      params.require(:room).permit(:name, :category)
     end
 end

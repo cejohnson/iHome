@@ -16,7 +16,13 @@
       <td><%= link_to 'Show', residence %></td>
       <td><%= link_to 'Edit', edit_residence_path(residence) %></td>
       <td><%= link_to 'Destroy', residence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <td><%= link_to 'Interior', interiors_path %></td>
+      <td>
+        <% if current_residence.eql? residence %>
+          <div>Active Residence</div>
+        <% else %>
+          <%= button_to 'Change To Active Residence', set_active_residence_path(residence.id) %>
+        <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>

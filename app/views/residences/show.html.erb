@@ -1,11 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<%= @residence.name %>
-<%= @residence.footage %>
-<%= @residence.rent %>
-<%= @residence.cleaning_frequency %>
+<h3><%= @residence.name %></h3>
+<p>Rent: <%= @residence.rent %></p>
+<p>Cleaning Frequency: <%= @residence.cleaning_frequency %></p>
 
 <%= link_to 'Edit', edit_residence_path(@residence) %> |
-<%= link_to 'Back', residences_path %>
-
-<%= link_to 'Interior', interiors_path %>
+<%= link_to 'Back', residences_path %> |
+<% if current_residence.eql? @residence %>
+  <%= link_to 'Interior', interiors_path %>
+<% else %>
+  <%= button_to 'Change To Active Residence', set_active_residence_path(@residence.id) %>
+<% end %>

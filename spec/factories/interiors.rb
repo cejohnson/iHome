@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :interior do
+    bedrooms 4
+    bathrooms 3
   end
 end

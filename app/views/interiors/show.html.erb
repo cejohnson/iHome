@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<h3><%= current_residence.name %></h3>
+<p>Clean By Room: <%= @interior.clean_by_room %></p>
+<p>Bedrooms: <%= @interior.bedrooms %></p>
+<p>Bathrooms: <%= @interior.bathrooms %></p>
+<p>Garage: <%= @interior.garage %></p>
 
 <%= link_to 'Edit', edit_interior_path(@interior) %> |
-<%= link_to 'Back', interiors_path %>
+<%= link_to 'Back', interiors_path %> |
+<%= link_to 'Rooms', rooms_path %>

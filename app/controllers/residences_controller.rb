@@ -26,7 +26,8 @@ class ResidencesController < AuthenticatedController
   def create
     @residence = Residence.new(residence_params)
     current_user.residences << @residence
-=begin
+    current_user.set_current_residence(@residence.id)
+
     respond_to do |format|
       if @residence.save
         format.html { redirect_to @residence, notice: 'Residence was successfully created.' }
@@ -36,27 +37,14 @@ class ResidencesController < AuthenticatedController
         format.json { render json: @residence.errors, status: :unprocessable_entity }
       end
     end
-=end
-    if !current_residence.interior
-      redirect_to new_interior_path
-    else
-      respond_to do |format|
-        if @residence.save
-          format.html { redirect_to @residence, notice: 'Residence was successfully created.' }
-          format.json { render action: 'show', status: :created, location: @residence }
-        else
-          format.html { render action: 'new' }
-          format.json { render json: @residence.errors, status: :unprocessable_entity }
-        end
-      end
-    end
   end
 
   # PATCH/PUT /residences/1
   # PATCH/PUT /residences/1.json
   def update
     respond_to do |format|
-      if @residence.update(residence_params)
+      if @residence.update_attributes(residence_params)
+        current_user.save
         format.html { redirect_to @residence, notice: 'Residence was successfully updated.' }
         format.json { head :no_content }
       else
@@ -75,6 +63,11 @@ class ResidencesController < AuthenticatedController
       format.json { head :no_content }
     end
   end
+  
+  def set_active_residence
+    current_user.set_current_residence(params[:id])
+    redirect_to :back
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -84,6 +77,6 @@ class ResidencesController < AuthenticatedController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def residence_params
-      params.require(:residence).permit(:name, :footage, :rent, :cleaning_frequency)
+      params.require(:residence).permit(:name, :rent, :cleaning_frequency)
     end
 end

@@ -4,7 +4,7 @@ class TasksController < AuthenticatedController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = current_residence.interior.tasks.all
   end
 
   # GET /tasks/1
@@ -25,6 +25,7 @@ class TasksController < AuthenticatedController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
+    current_residence.interior.tasks << @task
 
     respond_to do |format|
       if @task.save
@@ -41,7 +42,7 @@ class TasksController < AuthenticatedController
   # PATCH/PUT /tasks/1.json
   def update
     respond_to do |format|
-      if @task.update(task_params)
+      if @task.update_attributes(task_params)
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
@@ -64,11 +65,11 @@ class TasksController < AuthenticatedController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
-      @task = Task.find(params[:id])
+      @task = current_residence.interior.tasks.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params[:task]
+      params.require(:task).permit(:name, :frequency)
     end
 end

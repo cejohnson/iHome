@@ -44,11 +44,18 @@ class User
   
   field :current_residence_id, :type => String, :default => ""
   
+  def set_current_residence(id)
+    self.current_residence_id = id
+    self.save
+  end
+  
   def current_residence
     if current_residence_id != ""
+      puts "Using ID"
       residences.find(current_residence_id)
     else
       current_residence_id = residences[0].id
+      puts "Setting ID alternate"
       residences[0]
     end
   end

@@ -11,7 +11,6 @@ class InteriorsController < AuthenticatedController
   # GET /interiors/1
   # GET /interiors/1.json
   def show
-    @interior = current_residence.interior
   end
 
   # GET /interiors/new
@@ -29,8 +28,7 @@ class InteriorsController < AuthenticatedController
     @interior = Interior.new(interior_params)
     current_residence.interior = @interior
     current_residence.interior.set_rooms
-    redirect_to rooms_path
-=begin
+    current_residence.interior.set_tasks
     respond_to do |format|
       if @interior.save
         format.html { redirect_to @interior, notice: 'Interior was successfully created.' }
@@ -40,14 +38,13 @@ class InteriorsController < AuthenticatedController
         format.json { render json: @interior.errors, status: :unprocessable_entity }
       end
     end
-=end
   end
 
   # PATCH/PUT /interiors/1
   # PATCH/PUT /interiors/1.json
   def update
     respond_to do |format|
-      if @interior.update(interior_params)
+      if @interior.update_attributes(interior_params)
         format.html { redirect_to @interior, notice: 'Interior was successfully updated.' }
         format.json { head :no_content }
       else
@@ -70,11 +67,11 @@ class InteriorsController < AuthenticatedController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_interior
-      @interior = Interior.find(params[:id])
+      @interior = current_residence.interior
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def interior_params
-      params.require(:interior).permit(:clean_by_room)
+      params.require(:interior).permit(:clean_by_room, :bedrooms, :bathrooms, :garage)
     end
 end
