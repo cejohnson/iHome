@@ -3,7 +3,8 @@ class Task
   
   field :name, :type => String
   field :frequency, :type => Integer, :default => 7
+  field :rooms, :type => Array
   
-  belongs_to :interior
-  has_and_belongs_to_many :rooms
+  embedded_in :interior
+  #has_and_belongs_to_many :rooms
 end

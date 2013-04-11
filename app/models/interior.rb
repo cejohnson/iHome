@@ -8,7 +8,7 @@ class Interior
   
   embedded_in :residence
   embeds_many :rooms
-  has_many :tasks
+  embeds_many :tasks
   
   def set_rooms
     rooms << rooms.new( name: "Master Bedroom", category: "bedroom" )
@@ -33,25 +33,25 @@ class Interior
   
   def set_tasks
     self.tasks << [
-      Task.new( name: "Sweep" ),
-      Task.new( name: "Mop" ),
-      Task.new( name: "Dust" ),
-      Task.new( name: "Vacuum" ),
-      Task.new( name: "Clean Dishes" ),
-      Task.new( name: "Wipe Counters" ),
-      Task.new( name: "Clean Oven" ),
-      Task.new( name: "Clean Refrigerator" ),
-      Task.new( name: "Clean Stovetop" ),
-      Task.new( name: "Clean Microwave" ),
-      Task.new( name: "Clean Freezer" ),
-      Task.new( name: "Clean Sink" ),
-      Task.new( name: "Clean Toilet" ),
-      Task.new( name: "Clean Bathtub" ),
-      Task.new( name: "Clean Shower" ),
-      Task.new( name: "Clean Cabinets" ),
-      Task.new( name: "Clean Refrigerator Coils" ),
-      Task.new( name: "Replace Furnace Filter" ),
-      Task.new( name: "Check Smoke Detector" )
+      tasks.new( name: "Sweep" ),
+      tasks.new( name: "Mop" ),
+      tasks.new( name: "Dust" ),
+      tasks.new( name: "Vacuum" ),
+      tasks.new( name: "Clean Dishes" ),
+      tasks.new( name: "Wipe Counters" ),
+      tasks.new( name: "Clean Oven" ),
+      tasks.new( name: "Clean Refrigerator" ),
+      tasks.new( name: "Clean Stovetop" ),
+      tasks.new( name: "Clean Microwave" ),
+      tasks.new( name: "Clean Freezer" ),
+      tasks.new( name: "Clean Sink" ),
+      tasks.new( name: "Clean Toilet" ),
+      tasks.new( name: "Clean Bathtub" ),
+      tasks.new( name: "Clean Shower" ),
+      tasks.new( name: "Clean Cabinets" ),
+      tasks.new( name: "Clean Refrigerator Coils" ),
+      tasks.new( name: "Replace Furnace Filter" ),
+      tasks.new( name: "Check Smoke Detector" )
     ]
   end
 end

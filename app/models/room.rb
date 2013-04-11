@@ -3,7 +3,8 @@ class Room
   
   field :name, :type => String
   field :category, :type => String
+  field :tasks, :type => Array
   
-  embedded_in :interior, :inverse_of
-  has_and_belongs_to_many :tasks
+  embedded_in :interior
+  #has_and_belongs_to_many :tasks
 end
